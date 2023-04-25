@@ -1,3 +1,89 @@
 <template>
-    <div></div>
+    <lightning-card variant="Narrow"  title="Accordin" icon-name="standard:account">
+        
+        <div class="slds-m-around_small">
+            <p class="slds-text-heading_small slds-m-bottom_medium">Open Sections : {OpenSection}</p>
+            <lightning-button variant="standard" label="Toggle Section D"  onclick={handleToggle}></lightning-button>
+            <lightning-button variant="standard" label="Expand All"  onclick={handleExpand}></lightning-button>
+            <lightning-button variant="standard" label="Close All"  onclick={handleClose}></lightning-button>
+            
+        </div>
+       
+        <lightning-accordion allow-multiple-sections-open active-section-name={ActiveSections} onsectiontoggle={handleSectionToggle} >
+            <lightning-accordion-section name="A" label="Movies">
+                <p>This is the content area for section A.</p>
+                <p>Suspendisse est eros, maximus et risus a, luctus bibendum eros. Etiam ultrices tellus vehicula neque ornare, viverra venenatis purus accumsan. Aenean viverra finibus odio, vitae bibendum nisi tincidunt sed. Ut at porta dui. Praesent varius eleifend quam eget gravida. Curabitur maximus, leo sit amet dapibus gravida, mi ligula lacinia turpis, id feugiat tellus urna quis odio. Nullam tristique orci eu magna hendrerit vestibulum. Sed id purus at metus tristique tristique et vitae arcu. Sed molestie odio felis, sit amet lacinia mauris rutrum nec. Morbi semper lacinia tellus bibendum faucibus. Vestibulum eget ornare sapien, eget ultrices orci.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="B" label="Sports">
+                <p>This is the content area for section B.</p>
+                <p>Suspendisse est eros, maximus et risus a, luctus bibendum eros. Etiam ultrices tellus vehicula neque ornare, viverra venenatis purus accumsan. Aenean viverra finibus odio, vitae bibendum nisi tincidunt sed. Ut at porta dui. Praesent varius eleifend quam eget gravida. Curabitur maximus, leo sit amet dapibus gravida, mi ligula lacinia turpis, id feugiat tellus urna quis odio. Nullam tristique orci eu magna hendrerit vestibulum. Sed id purus at metus tristique tristique et vitae arcu. Sed molestie odio felis, sit amet lacinia mauris rutrum nec. Morbi semper lacinia tellus bibendum faucibus. Vestibulum eget ornare sapien, eget ultrices orci.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="C" label="History">
+                <p>This is the content area for section C.</p>
+                <p>Suspendisse est eros, maximus et risus a, luctus bibendum eros. Etiam ultrices tellus vehicula neque ornare, viverra venenatis purus accumsan. Aenean viverra finibus odio, vitae bibendum nisi tincidunt sed. Ut at porta dui. Praesent varius eleifend quam eget gravida. Curabitur maximus, leo sit amet dapibus gravida, mi ligula lacinia turpis, id feugiat tellus urna quis odio. Nullam tristique orci eu magna hendrerit vestibulum. Sed id purus at metus tristique tristique et vitae arcu. Sed molestie odio felis, sit amet lacinia mauris rutrum nec. Morbi semper lacinia tellus bibendum faucibus. Vestibulum eget ornare sapien, eget ultrices orci.</p>
+            </lightning-accordion-section>
+            <template if:true={isDVisible}>
+                <lightning-accordion-section name="D" label="Entertainment">
+                    <p>This is the content area for section D.</p>
+                    <p>Suspendisse est eros, maximus et risus a, luctus bibendum eros. Etiam ultrices tellus vehicula neque ornare, viverra venenatis purus accumsan. Aenean viverra finibus odio, vitae bibendum nisi tincidunt sed. Ut at porta dui. Praesent varius eleifend quam eget gravida. Curabitur maximus, leo sit amet dapibus gravida, mi ligula lacinia turpis, id feugiat tellus urna quis odio. Nullam tristique orci eu magna hendrerit vestibulum. Sed id purus at metus tristique tristique et vitae arcu. Sed molestie odio felis, sit amet lacinia mauris rutrum nec. Morbi semper lacinia tellus bibendum faucibus. Vestibulum eget ornare sapien, eget ultrices orci.</p>
+                </lightning-accordion-section>
+            </template>
+        </lightning-accordion>
+
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="Alert" icon-name="standard:contact">
+        <lightning-button-group  class="myclass slds-m-around_large ">
+        <lightning-button variant="inverse" label="View Error Modal" onclick={handleErrorClick}></lightning-button>
+        <lightning-button variant="inverse" label="View Warning Modal" onclick={handleWarningClick}></lightning-button>
+        <lightning-button variant="inverse" label="View Success Modal" onclick={handleSuccessClick}></lightning-button>
+        </lightning-button-group>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+    <lightning-card  variant="Narrow"  title="Avatar" icon-name="standard:opportunity">
+        <div class="slds-m-around_small">
+            <p>Standard</p>
+            <lightning-avatar src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg"></lightning-avatar>
+            <p>Size Range</p>
+            <lightning-avatar size="x-small" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="JD" fallback-icon-name="standard:person_account" alternative-text="Jane Doe" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar size="small"   src="https://www.lightningdesignsystem.com/assets/images/avatar3.jpg" initials="TP" fallback-icon-name="standard:person_account" alternative-text="Tony Price" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar size="medium"  src="https://www.lightningdesignsystem.com/assets/images/avatar1.jpg" initials="RE" fallback-icon-name="standard:person_account" alternative-text="Ryan Eddie" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar size="large"   src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="CR" fallback-icon-name="standard:person_account" alternative-text="Cindy Rice" class="slds-m-right_small"></lightning-avatar>
+            <p>Variant</p>
+            <lightning-avatar variant="circle" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW" fallback-icon-name="standard:person_account" alternative-text="Amy Weaver" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar variant="square" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="SJ" fallback-icon-name="standard:person_account" alternative-text="Sarah Jones" class="slds-m-right_small"></lightning-avatar>
+            <p>Initials</p>
+            <lightning-avatar src="/bad/image/url.jpg" initials="Sa" fallback-icon-name="standard:account" alternative-text="Salesforce" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar src="/bad/image/url.jpg" initials="BW" fallback-icon-name="standard:avatar"  alternative-text="Bob Wilson" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar src="/bad/image/url.jpg" initials="WE" fallback-icon-name="custom:custom92"  alternative-text="Wilson Enterprises" class="slds-m-right_small"></lightning-avatar>
+            <p>Icons</p>
+            <lightning-avatar src="/bad/image/url.jpg" initials="" fallback-icon-name="standard:account" alternative-text="Salesforce" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar src="/bad/image/url.jpg" initials="" fallback-icon-name="standard:avatar"  alternative-text="Bob Wilson" class="slds-m-right_small"></lightning-avatar>
+            <lightning-avatar src="/bad/image/url.jpg" initials="" fallback-icon-name="custom:custom92"  alternative-text="Wilson Enterprises" class="slds-m-right_small"></lightning-avatar>
+        </div>
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="Barcode Scanner  " icon-name="standard:case">
+        <div class="slds-m-around_small">
+                <lightning-barcode-scanner 
+                enable-continuous-scan
+                scanner-options={myScannerOptions}>
+                </lightning-barcode-scanner>
+        </div>
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="Badges" icon-name="standard:account">
+        <div class="slds-m-around_small">
+            <code>Basic Badge</code>
+            <lightning-badge label="Alpha" class="slds-badge_inverse"></lightning-badge>
+            <lightning-badge label="Beta"></lightning-badge>
+            <lightning-badge label="Gamma"></lightning-badge>
+
+            <code>Badge with Icon</code>
+            <lightning-badge label="Alpha" icon-name="standard:event"></lightning-badge>
+            <lightning-badge label="Beta" icon-name="standard:email" icon-position="end"></lightning-badge>
+            <lightning-badge label="Gamma" icon-name="custom:custom11"></lightning-badge>
+        </div>
+    </lightning-card>
+    
 </template>
